@@ -105,6 +105,17 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-copy {
+    min-width: 0;
+}
+
 .hero h1 {
     font-size: 2.75rem;
     font-weight: 700;
@@ -125,6 +136,44 @@ header {
     font-size: 1.05rem;
     color: var(--text-primary);
     margin-bottom: 32px;
+}
+
+.hero-portrait {
+    justify-self: end;
+    width: min(100%, 360px);
+    padding: 16px;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    background:
+        radial-gradient(circle at top, rgba(88, 166, 255, 0.18), transparent 55%),
+        linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(13, 17, 23, 0.98));
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.portrait-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portrait-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 4px 2px;
+}
+
+.portrait-caption strong {
+    color: var(--text-heading);
+    font-size: 1rem;
+}
+
+.portrait-caption span {
+    color: var(--text-muted);
+    font-size: 0.875rem;
 }
 
 .cta-buttons {
@@ -358,6 +407,8 @@ footer a:hover {
    6. RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 640px) {
+    .hero-layout { grid-template-columns: 1fr; gap: 24px; }
+    .hero-portrait { width: 100%; justify-self: stretch; }
     .hero h1 { font-size: 2.1rem; }
     .hero h2 { font-size: 1.1rem; }
     .nav-links { display: none; }
